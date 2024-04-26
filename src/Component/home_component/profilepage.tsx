@@ -3,6 +3,7 @@ import useFetch from '../hook/UseFetch';
 import { userid_context } from '../home_component/Home';
 import { useContext } from 'react';
 import im from './Im.png'
+import { useNavigate } from 'react-router-dom';
 
 interface UserData {
   user_id: string;
@@ -13,6 +14,7 @@ interface UserData {
 }
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const { _profile } = useContext(userid_context);
   console.log(_profile);
 
@@ -33,6 +35,10 @@ const ProfilePage = () => {
 
   const users: UserData[] = userData.details.results;
   const posts: UserData[]=postData.post.results;
+  function handlelogut(): void {
+    navigate('/');
+  }
+
   return (
     <div className="bg-blue flex flex-col items-center col-span-4 max-h-[700px]  overflow-y-auto p-5 h-[671px] sticky top-14 rounded-lg transition-transform hover:scale-105 rounded-lg">
       <div className="flex flex-col gap-5 items-center">
@@ -59,6 +65,7 @@ const ProfilePage = () => {
               <p className="text-2xl text-black">Year:</p>
               <p className="text-2xl text-black">{user.year_of_student}</p>
             </div>
+            <button onClick={()=>handlelogut()} className="bg-darkblue w-24 h-12 rounded-full">LogOut</button>
           </div>
         ))}
         {posts?.map((post: any) => (

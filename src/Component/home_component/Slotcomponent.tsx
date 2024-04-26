@@ -11,11 +11,11 @@ interface SlotContainerProps {
 export const DashboardLayout: FC<SlotContainerProps> = ({ children }) => {
   return (
     <div className="flex flex-col items-center px-10 pt-10 gap-16 bg-darkblue  max-lg:grid-cols-1 max-first:p-2">
-      <Nav />
+      <Nav/>
       <div className="grid grid-cols-8 gap-7 w-11/12  max-lg:grid-cols-1">
-        <Aside />
+        <Aside/>
         {children}
-        <Raside />
+        <Raside/>
       </div>
       <footer className=" text-white text-center py-4">
       <div className="container mx-auto">

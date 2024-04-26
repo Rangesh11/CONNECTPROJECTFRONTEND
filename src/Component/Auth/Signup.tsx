@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {userid_context} from  '../home_component/Home'
 import { useContext } from 'react';
+import axios from 'axios' 
 
 interface UserData {
   user_id: string;
@@ -18,7 +19,7 @@ interface UserLData {
 }
 
 export default function Signup() {
-  const {_setuserid,_userid,_collegeid, _setcollegeid}=useContext(userid_context);
+  const {_setuserid,_userid,_collegeid, _setcollegeid,_username,_setusername}=useContext(userid_context);
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [Username, setUsername] = useState('');
@@ -36,6 +37,10 @@ export default function Signup() {
     };
 
     try {
+      axios.post(
+        'http://localhost:3001/authenticate',
+        {username:Username}
+      )
       const response = await fetch('https://connectapi.tharanitharan-n2022cse.workers.dev/login', {
         method: 'POST',
         headers: {
@@ -43,7 +48,6 @@ export default function Signup() {
         },
         body: JSON.stringify(userLData),
       });
-
       if (response.ok) {
         const check = await response.json();
 
@@ -56,6 +60,7 @@ export default function Signup() {
         if (check.isCorrectPassword) {
           _setuserid(u);
           _setcollegeid(c);
+          _setusername(Username);
           localStorage.setItem("_userid",u);
           localStorage.setItem("_collegeid",c);
           console.log("login", _userid, _collegeid);
@@ -70,7 +75,7 @@ export default function Signup() {
       console.error('An error occurred during login:', error);
     }
   };
-
+  
   const handleSignup = async (e: React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
     const userData: UserData = {
@@ -83,6 +88,10 @@ export default function Signup() {
     };
 
     try {
+      axios.post(
+        'http://localhost:3001/authenticate',
+        {username:Username}
+      )
       const response = await fetch('https://connectapi.tharanitharan-n2022cse.workers.dev/signup', {
         method: 'POST',
         headers: {
@@ -90,6 +99,7 @@ export default function Signup() {
         },
         body: JSON.stringify(userData),
       });
+     
 
       if (response.ok) {
         const check = await response.json();
@@ -97,8 +107,12 @@ export default function Signup() {
         // Assuming check has a structure like { isCorrectPassword: boolean }
         if (check.isCorrectPassword){
           _setuserid(userId)
+          _setusername(Username)
           _setcollegeid(college_id);
+          console.log("User");
+          console.log(_userid)
           localStorage.setItem("_userid",userId);
+          localStorage.setItem("_username",Username);
           localStorage.setItem("_collegeid",college_id);
           console.log("sign ",_userid,_collegeid)
           navigate('/home');

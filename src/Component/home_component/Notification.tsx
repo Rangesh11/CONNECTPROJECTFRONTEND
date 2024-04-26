@@ -85,9 +85,6 @@ export default function Notification() {
     if(ms=="ignore"){
       await fetchAPI(sender_id,false);
     }
-    
-    
-    
   };
 
   return (

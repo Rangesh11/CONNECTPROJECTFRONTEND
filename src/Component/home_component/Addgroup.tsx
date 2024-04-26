@@ -18,12 +18,12 @@ interface GroupMembers {
 
 export default function Addgroup() {
   const { _userid, _collegeid } = useContext(userid_context);
-  const { data, refetch } = useFetch({ url: `https://connectapi.tharanitharan-n2022cse.workers.dev/getGroupsForUserAndnotcollege/${_userid}/${_collegeid}` });
-  console.log(data);
+  const { data } = useFetch({ url: `https://connectapi.tharanitharan-n2022cse.workers.dev/getGroupsForUserAndnotcollege/${_userid}/${_collegeid}` });
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   async function handleAdd(groupId: string): Promise<void> {
     const messageData: GroupMembers = {
-      duplicate_group_id: groupId, // Using groupId as duplicate_group_id
+      duplicate_group_id: groupId,
       member: _userid,
     };
 
@@ -50,17 +50,24 @@ export default function Addgroup() {
     }
   }
 
+  // Filter groups based on search query
+  const filteredGroups = data?.results.filter((group: Group) =>
+    group.group_name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="flex flex-col col-span-4 bg-blue gap-5 row-span-2 max-h-[700px]  overflow-y-auto items-center p-3 rounded-lg transition-transform hover:scale-105 max-first:h-44">
       <div className="flex flex-row gap-7 w-11/12 justify-between">
-        <div className="size-9 bg-black"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-9 lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
         <input
           className=" bg-darkblue w-8/12 p-4 rounded-full h-9 placeholder:text-white"
           type="text"
           placeholder="Search for group"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      {data && data.results.map((group: Group) => (
+      {filteredGroups && filteredGroups.map((group: Group) => (
         <div key={group.group_id} className="flex flex-col gap-2 bg-darkblue w-11/12 box-border p-3 rounded-3xl transition-transform hover:scale-105">
           <a>
             <div className="flex flex-row gap-5 items-center">

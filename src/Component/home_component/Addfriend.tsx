@@ -59,7 +59,7 @@ export default function Addfriend() {
   return (
     <div className="flex flex-col col-span-4 bg-blue gap-5 row-span-2 max-h-[700px]  overflow-y-auto items-center p-3 transition-transform hover:scale-105 rounded-lg max-first:">
       <div className="flex flex-row gap-7 w-11/12 justify-between">
-        <div className="size-9 bg-black"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="size-9 lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
         <input
           className=" w-8/12 p-4 rounded-full h-9 bg-darkblue placeholder:text-white"
           type="text"

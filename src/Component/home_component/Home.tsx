@@ -10,13 +10,16 @@ import Chat from './Chat';
 import Addgroup from './Addgroup';
 import ProfilePage from './profilepage';
 import { DashboardLayout } from './Slotcomponent';
+import ChatsPage from './Realchat';
 
 export type userid_context_type = {
   _userid: string;
+  _username:string;
   _collegeid: string;
   _profile: string;
   _chat:string;
   _setuserid: (value: string) => void;
+  _setusername:(value: string) => void;
   _setcollegeid: (value: string) => void;
   _setprofile: (value: string) => void;
   _setchat:(value:string)=>void;
@@ -24,10 +27,12 @@ export type userid_context_type = {
 
 export const userid_context = createContext<userid_context_type>({
   _userid: localStorage.getItem("_userid")|| '',
+  _username: localStorage.getItem("_username")|| '',
   _collegeid: localStorage.getItem("_collegeid")|| '',
   _profile: '',
   _chat:'',
   _setuserid: () => {},
+  _setusername: () => {},
   _setcollegeid: () => {},
   _setprofile: () => {},
   _setchat:()=>{}
@@ -39,9 +44,10 @@ export default function Home() {
   const [_collegeid, _setcollegeid] = useState(localStorage.getItem("_collegeid")|| '');
   const [_profile, _setprofile] = useState('');
   const[_chat,_setchat]=useState('');
+  const [_username, _setusername] = useState(localStorage.getItem("_username")|| '');
 
   return (
-    <userid_context.Provider value={{ _userid, _collegeid, _profile,_chat, _setuserid, _setcollegeid, _setprofile,_setchat }}>
+    <userid_context.Provider value={{ _userid,_username, _collegeid, _profile,_chat, _setuserid,_setusername ,_setcollegeid, _setprofile,_setchat }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Signup />} />
@@ -52,7 +58,8 @@ export default function Home() {
           <Route path="/Creategroup" element={<DashboardLayout><CreateGroup /></DashboardLayout>} />
           <Route path="/addgroup" element={<DashboardLayout><Addgroup /></DashboardLayout>} />
           <Route path="/Profile" element={<DashboardLayout><ProfilePage /></DashboardLayout>} />
-          <Route path="/Chat" element={<DashboardLayout><Chat /></DashboardLayout>} />
+          <Route path="/Chat" element={<ChatsPage user={{ username: _username, secret:_username }} />} />
+
         </Routes>
       </BrowserRouter>
     </userid_context.Provider>

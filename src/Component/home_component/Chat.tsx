@@ -56,11 +56,17 @@ export default function Chat() {
         </div>
       </div>
       <div className="bg-darkblue h-5/6 rounded-lg overflow-y-auto p-2 flex flex-col gap-1">
-        {chatMessages.map((chatMessage, index) => (
-          <p key={index} className="text-white p-2 bg-blue shadow-xl rounded-md w-fit">{chatMessage}</p>
-        ))}
+        {chatMessages.map((chatMessage, index) =>(
+          <div>
+            <p key={index} className="text-white p-2 bg-blue shadow-xl rounded-md w-fit">  {chatMessage }</p>
+          </div>
+        ) )
+        }
+       
+        
         <div ref={messagesEndRef} />
       </div>
+  
       <div className="bg-darkblue p-2 rounded-lg">
         <div className="flex flex-row gap-3 items-center">
           <input
