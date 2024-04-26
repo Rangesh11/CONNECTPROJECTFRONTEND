@@ -10,7 +10,7 @@ interface SlotContainerProps {
 
 export const DashboardLayout: FC<SlotContainerProps> = ({ children }) => {
   return (
-    <div className="flex flex-col items-center px-10 pt-10 gap-16 bg-darkblue  max-lg:grid-cols-1 max-first:p-2">
+    <div style={{ backgroundColor: 'rgba(39,39,48,255)' }} className="flex flex-col items-center px-10 pt-10 gap-16  max-lg:grid-cols-1 max-first:p-2">
       <Nav/>
       <div className="grid grid-cols-8 gap-7 w-11/12  max-lg:grid-cols-1">
         <Aside/>

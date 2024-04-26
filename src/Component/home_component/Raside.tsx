@@ -18,7 +18,7 @@ export default function Raside() {
   };
 
   return (
-    <aside className="col-span-2 p-5 flex flex-col gap-4 rounded-lg row-span-1 max-h-[700px] overflow-y-auto bg-blue transition-transform hover:scale-105 max-lg:row-span-1 max-first:max-h-[1000px]">
+    <aside style={{ backgroundColor: 'rgba(58,60,77,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} className="col-span-2 p-5 flex flex-col gap-4 rounded-lg row-span-1 max-h-[700px] overflow-y-auto bg-blue transition-transform hover:scale-105 max-lg:row-span-1 max-first:max-h-[1000px]">
       {/* {data && (
         <>
           <p className="text-3xl text-black">Latest Activity</p>
@@ -32,12 +32,12 @@ export default function Raside() {
           </div>
         </>
       )} */}
-      <p className='text-black text-3xl font-bold'>My Friends</p>
+      <p className='text-white text-3xl font-bold'>My Friends</p>
       <div>
         {data && data.results.map((userdata: { user_name: string, user_id: string }) => (
           <div key={userdata.user_id} className="flex flex-row gap-5 h-16 items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-9 text-black lucide lucide-user-round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>
-            <button onClick={() => handleChatClick(userdata.user_name)} className='text-2xl text-black transition-transform hover:scale-125 hover:font-bold'>{userdata.user_name}</button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-9 text-white lucide lucide-user-round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>
+            <button onClick={() => handleChatClick(userdata.user_name)} className='text-2xl text-white transition-transform hover:scale-125 hover:font-bold'>{userdata.user_name}</button>
           </div>
         ))}
       </div>

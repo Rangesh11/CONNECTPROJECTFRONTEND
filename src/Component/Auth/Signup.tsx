@@ -132,17 +132,17 @@ export default function Signup() {
   };
 
   return (
-    <form
+    <form style={{ backgroundColor: 'rgba(39,39,48,255)' }}
       onSubmit={logpage ? handleSignup : handleLogin}
       className="bg-darkblue flex flex-col h-screen w-screen items-center justify-center"
     >
-      <div className="bg-blue flex flex-col items-center gap-6 rounded-lg p-4">
-        <h1 className="text-black text-3xl ">{logpage ? 'Sign up' : 'Login'}</h1>
+      <div style={{ backgroundColor: 'rgba(24,132,254,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} className="bg-blue flex flex-col items-center gap-6 rounded-lg p-4">
+        <h1 className="text-white text-3xl ">{logpage ? 'Sign up' : 'Login'}</h1>
         <div className="flex flex-col gap-4 items-center">
           {logpage ? (
             <>
               <div className="flex flex-row gap-3 items-center justify-between w-11/12">
-                <label className="text-black">College ID:</label>
+                <label className="text-white">College ID:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -152,7 +152,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-10 items-center justify-between w-11/12">
-                <label className="text-black">User ID:</label>
+                <label className="text-white">User ID:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -162,7 +162,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-3 items-center justify-between w-11/12">
-                <label className="text-black">User Name:</label>
+                <label className="text-white">User Name:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -172,7 +172,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-3 items-center justify-between w-11/12">
-                <label className="text-black">Password:</label>
+                <label className="text-white">Password:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="password"
@@ -182,7 +182,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-3 items-center justify-between w-11/12">
-                <label className="text-black">Role:</label>
+                <label className="text-white">Role:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -192,7 +192,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-3 items-center justify-between w-11/12">
-                <label className="text-black">Year of student:</label>
+                <label className="text-white">Year of student:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -201,7 +201,7 @@ export default function Signup() {
                   onChange={(e) => setyear(e.target.value)}
                 />
               </div>
-              <button type="submit" className="bg-darkblue h-10 w-32 rounded-full">
+              <button style={{ color: 'white', cursor: 'pointer',backgroundColor: 'black' }} type="submit" className="bg-darkblue h-10 w-32 rounded-full">
                 {logpage ? 'Sign Up' : 'Login'}
               </button>
               <div>
@@ -213,7 +213,7 @@ export default function Signup() {
           ) : (
             <>
               <div className="flex flex-row gap-3 items-center justify-center w-11/12">
-                <label className="text-black">User Name:</label>
+                <label className="text-white">User Name:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="text"
@@ -223,7 +223,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-row gap-3 items-center justify-center w-11/12">
-                <label className="text-black">Password:</label>
+                <label className="text-white">Password:</label>
                 <input
                   className="rounded-full h-10 w-7/12 pl-3"
                   type="password"
@@ -232,7 +232,7 @@ export default function Signup() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button type="submit" className="bg-darkblue h-10 w-32 rounded-full">
+              <button style={{ color: 'white', cursor: 'pointer',backgroundColor: 'black' }}  type="submit" className=" h-10 w-32 rounded-full">
                 Login
               </button>
               <div>

@@ -67,18 +67,18 @@ try {
 
 
   return (
-    <div className="bg-blue p-5 flex flex-col gap-7 items-center col-span-4 max-h-[700px]  overflow-y-auto  rounded-lg transition-transform hover:scale-105">
-      <p className="text-2xl font-bold text-black">Post The content</p>
+    <div style={{ backgroundColor: 'rgba(58,60,77,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} className="bg-blue p-5 flex flex-col gap-7 items-center col-span-4 max-h-[700px]  overflow-y-auto  rounded-lg transition-transform hover:scale-105">
+      <p className="text-2xl font-bold text-white">Post The content</p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-11/12 items-center">
         <input
-          className="border border-white h-20 w-11/12 text-2xl rounded-lg p-3 bg-darkblue placeholder:text-white"
+          className="border border-white h-20 w-11/12 text-2xl rounded-lg p-3 bg-white  placeholder:text-black"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <textarea
-          className="border border-white h-64 w-11/12 text-2xl rounded-lg p-3 bg-darkblue placeholder:text-white"
+          className="border border-white h-64 w-11/12 text-2xl rounded-lg p-3 bg-white  placeholder:text-black"
           placeholder="Description"
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
@@ -92,7 +92,7 @@ try {
       <input id="imageInput" type='file' name='image'  style={{ display: 'none' }} onChange={handleimg} />
     </label>
  
-        <button type='submit' className="bg-darkblue w-28 h-14 rounded-xl text-xl font-bold text-white">
+        <button style={{ backgroundColor: 'rgba(24,132,254,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} type='submit' className="bg-darkblue w-28 h-14 rounded-xl text-xl font-bold text-white">
           Post
         </button>
       </form>

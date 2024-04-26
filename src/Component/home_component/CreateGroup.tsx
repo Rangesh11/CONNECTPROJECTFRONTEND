@@ -55,13 +55,13 @@ export default function CreateGroup() {
   };
 
   return (
-    <div className="flex flex-col bg-blue p-11 col-span-4 gap-6 items-center rounded-lg">
-      <p className="text-3xl">Create Group</p>
+    <div style={{ backgroundColor: 'rgba(58,60,77,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} className="flex flex-col bg-blue p-11 col-span-4 gap-6 items-center rounded-lg">
+      <p className="text-white text-3xl">Create Group</p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-10 justify-center items-center p-3 w-11/12">
         <div className="flex flex-row w-11/12 gap-4 items-center justify-between max-first:w-[250px]">
-          <label className="text-2xl  text-black max-w-24 w-8/12 max-first:hidden">Group ID:</label>
+          <label className="text-2xl  text-white max-w-24 w-8/12 max-first:hidden">Group ID:</label>
           <input
-            className=" h-14 rounded-lg pl-5 bg-darkblue  placeholder:text-white w-10/12 max-first:w-11/12"
+            className=" h-14 rounded-lg pl-5 bg-white  placeholder:text-black w-10/12 max-first:w-11/12"
             placeholder="Enter the group"
             value={group_id}
             onChange={(e) => {
@@ -70,9 +70,9 @@ export default function CreateGroup() {
           />
         </div>
         <div className="flex flex-row w-11/12 gap-4 items-center justify-between max-first:w-[250px]  ">
-          <label className="text-2xl text-black max-w-24  w-8/12 max-first:hidden ">Group Name:</label>
+          <label className="text-2xl text-white max-w-24  w-8/12 max-first:hidden ">Group Name:</label>
           <input
-            className="  h-14 rounded-lg p-5 bg-darkblue  placeholder:text-white w-10/12 max-first:w-11/12"
+            className="  h-14 rounded-lg p-5 bg-white  placeholder:text-black w-10/12 max-first:w-11/12"
             placeholder="Enter the Group Name"
             value={Group_name}
 
@@ -82,9 +82,9 @@ export default function CreateGroup() {
           />
         </div>
         <div className="flex flex-row w-11/12 gap-4 items-center justify-between max-first:w-[250px]">
-          <label className="text-2xl  text-black max-w-24 max-first:hidden">Group desc:</label>
+          <label className="text-2xl  text-white max-w-24 max-first:hidden">Group desc:</label>
           <input
-            className=" h-14 rounded-lg pl-5 bg-darkblue  placeholder:text-white w-10/12 max-first:w-11/12"
+            className=" h-14 rounded-lg pl-5 bg-white  placeholder:text-black w-10/12 max-first:w-11/12"
             placeholder="Enter the Description"
             value={Groupdesc}
             onChange={(e) => {
@@ -92,7 +92,7 @@ export default function CreateGroup() {
             }}
           />
         </div>
-        <button type="submit" className="h-14 bg-darkblue w-28 rounded-2xl font-bold text-wh ">
+        <button style={{ backgroundColor: 'rgba(24,132,254,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} type="submit" className="text white h-14 bg-white w-28 rounded-2xl font-bold text-wh ">
           Create Group
         </button>
       </form>

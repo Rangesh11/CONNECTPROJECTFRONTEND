@@ -57,11 +57,11 @@ export default function Addfriend() {
   );
 
   return (
-    <div className="flex flex-col col-span-4 bg-blue gap-5 row-span-2 max-h-[700px]  overflow-y-auto items-center p-3 transition-transform hover:scale-105 rounded-lg max-first:">
+    <div style={{ backgroundColor: 'rgba(58,60,77,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} className="flex flex-col col-span-4 bg-blue gap-5 row-span-2 max-h-[700px]  overflow-y-auto items-center p-3 transition-transform hover:scale-105 rounded-lg max-first:">
       <div className="flex flex-row gap-7 w-11/12 justify-between">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="size-9 lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
         <input
-          className=" w-8/12 p-4 rounded-full h-9 bg-darkblue placeholder:text-white"
+          className=" w-8/12 p-4 rounded-full h-9 "
           type="text"
           placeholder="Search for Friends"
           value={searchQuery}
@@ -70,7 +70,7 @@ export default function Addfriend() {
       </div>
 
       {filteredResults?.map((userData: User, index: number) => (
-        <div key={userData.user_id} className={`flex flex-col gap-2 bg-darkblue w-11/12 box-border p-3 rounded-3xl ${followings[index] && 'hidden'} transition-transform hover:scale-105`}>
+        <div style={{ backgroundColor: 'rgba(24,132,254,255)', boxShadow: 'rgb(24 144 255 / 35%) 0px 2px 7px' }} key={userData.user_id} className={`flex flex-col gap-2 bg-darkblue w-11/12 box-border p-3 rounded-3xl ${followings[index] && 'hidden'} transition-transform hover:scale-105`}>
           <a>
             <div className="flex flex-row gap-5 items-center w-11/12">
             <Link to="/profile" className="max-first:hidden" onClick={()=>_setprofile(userData.user_id)} key={userData.user_id}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="size-9 text-white lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></Link>
